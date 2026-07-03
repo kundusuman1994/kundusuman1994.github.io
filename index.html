@@ -110,6 +110,14 @@
   .gallery .frame img{width:100%;height:100%;object-fit:cover;display:block}
   .gallery figcaption{font-size:13px;color:var(--muted);margin-top:8px}
 
+  .course{border:1px solid var(--rule);border-radius:12px;padding:22px 24px;margin:4px 0 18px}
+  .course-title{font-family:"Newsreader",serif;font-size:19px;font-weight:500;letter-spacing:-.01em}
+  .course-meta{font-size:13px;color:var(--muted);margin-top:3px}
+  .course-desc{font-size:14.5px;color:#33322f;margin:14px 0 12px;line-height:1.6}
+  ol.course-list{margin:0;padding-left:20px;font-size:14px;color:#3a3a37}
+  ol.course-list li{padding:3px 0;line-height:1.5}
+  .course-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;align-items:center;font-size:13.5px}
+  .soon{font-size:13px;color:var(--faint);font-style:italic}
   .contact-grid{display:grid;gap:16px;margin-top:10px}
   .field label{display:block;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:6px}
   .field input,.field textarea{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--rule-strong);border-radius:8px;padding:11px 13px;transition:border-color .15s ease}
@@ -143,6 +151,7 @@
     <button data-s="research">Research</button>
     <button data-s="publications">Publications &amp; Talks</button>
     <button data-s="teaching">Teaching</button>
+    <button data-s="outreach">Outreach &amp; Admin</button>
     <button data-s="cv">CV</button>
     <button data-s="writing">Writing</button>
     <button data-s="personal">Personal</button>
@@ -228,52 +237,52 @@
           <li>
             <div class="pub-title">A string theory for two-dimensional Yang–Mills theory, Part I</div>
             <div class="pub-auth">O. Aharony, <span class="me">S. Kundu</span>, T. Sheaffer</div>
-            <div class="pub-meta"><span class="venue">JHEP</span> 07 (2024) 063</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 07 (2024) 063 <a class="lnk" href="https://doi.org/10.1007/JHEP07(2024)063" target="_blank" rel="noopener">DOI ↗</a><a class="lnk" href="https://arxiv.org/abs/2312.12266" target="_blank" rel="noopener">arXiv:2312.12266</a></div>
           </li>
           <li>
             <div class="pub-title">Monodromies of CFT correlators on the Lorentzian cylinder</div>
             <div class="pub-auth"><span class="me">S. Kundu</span>, S. Minwalla, A. Navhal</div>
-            <div class="pub-meta"><span class="venue">SciPost Phys.</span> 19 (2025) 162</div>
+            <div class="pub-meta"><span class="venue">SciPost Phys.</span> 19 (2025) 162 <a class="lnk" href="https://doi.org/10.21468/SciPostPhys.19.6.162" target="_blank" rel="noopener">DOI ↗</a><a class="lnk" href="https://arxiv.org/abs/2505.01507" target="_blank" rel="noopener">arXiv:2505.01507</a></div>
           </li>
           <li>
             <div class="pub-title">Regge constraints on local four-point scattering amplitudes of massive particles with spin</div>
             <div class="pub-auth">S. Dutta Chowdhury, V. Kumar, <span class="me">S. Kundu</span>, A. Rahaman</div>
-            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2024) 123</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2024) 123 <a class="lnk" href="https://doi.org/10.1007/JHEP05(2024)123" target="_blank" rel="noopener">DOI ↗</a><a class="lnk" href="https://arxiv.org/abs/2311.17015" target="_blank" rel="noopener">arXiv:2311.17015</a></div>
           </li>
           <li>
             <div class="pub-title">Regge growth of isolated massive spin-2 particles and the Swampland</div>
             <div class="pub-auth"><span class="me">S. Kundu</span>, E. Palti, J. Quirant</div>
-            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2024) 139</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2024) 139 <a class="lnk" href="https://doi.org/10.1007/JHEP05(2024)139" target="_blank" rel="noopener">DOI ↗</a><a class="lnk" href="https://arxiv.org/abs/2311.00022" target="_blank" rel="noopener">arXiv:2311.00022</a></div>
           </li>
           <li>
             <div class="pub-title">“Grey Galaxies” as an endpoint of the Kerr–AdS superradiant instability</div>
             <div class="pub-auth">S. Kim, <span class="me">S. Kundu</span>, E. Lee, J. Lee, S. Minwalla, C. Patel</div>
-            <div class="pub-meta"><span class="venue">JHEP</span> 11 (2023) 024</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 11 (2023) 024 <a class="lnk" href="https://doi.org/10.1007/JHEP11(2023)024" target="_blank" rel="noopener">DOI ↗</a><a class="lnk" href="https://arxiv.org/abs/2305.08922" target="_blank" rel="noopener">arXiv:2305.08922</a></div>
           </li>
           <li>
             <div class="pub-title">A CFT interpretation of cosmological correlation functions in α-vacua in de Sitter space</div>
             <div class="pub-auth">S. Jain, N. Kundu, <span class="me">S. Kundu</span>, A. Mehta, S. K. Sake</div>
-            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2023) 111</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2023) 111 <a class="lnk" href="https://doi.org/10.1007/JHEP05(2023)111" target="_blank" rel="noopener">DOI ↗</a><a class="lnk" href="https://arxiv.org/abs/2206.08395" target="_blank" rel="noopener">arXiv:2206.08395</a></div>
           </li>
           <li>
             <div class="pub-title">Bounds on Regge growth of flat space scattering from bounds on chaos</div>
             <div class="pub-auth">D. Chandorkar, S. Dutta Chowdhury, <span class="me">S. Kundu</span>, S. Minwalla</div>
-            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2021) 143</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2021) 143 <a class="lnk" href="https://doi.org/10.1007/JHEP05(2021)143" target="_blank" rel="noopener">DOI ↗</a><a class="lnk" href="https://arxiv.org/abs/2102.03122" target="_blank" rel="noopener">arXiv:2102.03122</a></div>
           </li>
           <li>
             <div class="pub-title">Classification of all 3-particle S-matrices quadratic in photons or gravitons</div>
             <div class="pub-auth">S. Chakraborty, S. Dutta Chowdhury, T. Gopalka, <span class="me">S. Kundu</span>, S. Minwalla, A. Mishra</div>
-            <div class="pub-meta"><span class="venue">JHEP</span> 04 (2020) 110</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 04 (2020) 110 <a class="lnk" href="https://doi.org/10.1007/JHEP04(2020)110" target="_blank" rel="noopener">DOI ↗</a><a class="lnk" href="https://arxiv.org/abs/2001.07117" target="_blank" rel="noopener">arXiv:2001.07117</a></div>
           </li>
           <li>
             <div class="pub-title">Large-D gravity and charged membrane dynamics with nonzero cosmological constant</div>
             <div class="pub-auth"><span class="me">S. Kundu</span>, P. Nandi</div>
-            <div class="pub-meta"><span class="venue">JHEP</span> 12 (2018) 034</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 12 (2018) 034 <a class="lnk" href="https://doi.org/10.1007/JHEP12(2018)034" target="_blank" rel="noopener">DOI ↗</a><a class="lnk" href="https://arxiv.org/abs/1806.08515" target="_blank" rel="noopener">arXiv:1806.08515</a></div>
           </li>
           <li>
             <div class="pub-title">An action for and hydrodynamics from the improved large-D membrane</div>
             <div class="pub-auth">Y. Dandekar, <span class="me">S. Kundu</span>, S. Mazumdar, S. Minwalla, A. Mishra, A. Saha</div>
-            <div class="pub-meta"><span class="venue">JHEP</span> 09 (2018) 137</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 09 (2018) 137 <a class="lnk" href="https://doi.org/10.1007/JHEP09(2018)137" target="_blank" rel="noopener">DOI ↗</a><a class="lnk" href="https://arxiv.org/abs/1712.09400" target="_blank" rel="noopener">arXiv:1712.09400</a></div>
           </li>
         </ol>
 
@@ -289,7 +298,7 @@
           <div class="talk"><div class="yr">2023</div><div class="body"><div class="t">Regge growth of isolated massive spin-2 particles and the Swampland</div><div class="v">Seminar · TIFR, Mumbai</div></div></div>
           <div class="talk"><div class="yr">2021</div><div class="body"><div class="t">CRG from the bound on chaos</div><div class="v">Gong show · Strings 2021 · also Caltech, IAS Princeton, TASI, Greater Paris Bootstrap · <a class="rec" href="https://youtu.be/Cv92qxKt2LA?t=1787" target="_blank" rel="noopener">recording ↗</a></div></div></div>
         </div>
-        <p style="margin-top:22px;font-size:14px;color:var(--muted)">A complete talk history is in the <button class="lnk" data-s="cv" style="all:unset;cursor:pointer;color:var(--accent)">CV</button>.</p>
+        <p style="margin-top:22px;font-size:14px;color:var(--muted)">Recorded talks and lectures are collected on my <a href="https://www.youtube.com/playlist?list=PL_rRzpvo2vHjCY0XLWQMDEcaBLoNPesYd" target="_blank" rel="noopener">YouTube playlist ↗</a>.</p>
       </div>
     </section>
 
@@ -301,10 +310,31 @@
         <p class="lead">I enjoy teaching the ideas behind non-perturbative gauge theory and gravity, from lecture courses to research supervision.</p>
 
         <h3>Lecture series</h3>
+        <div class="course">
+          <div class="course-head">
+            <div class="course-title">Physics Beyond the Classroom — A Few Puzzles in Physics</div>
+            <div class="course-meta">Presidency University Physics Society · 6 lectures × 1 hour · online · from 23 June 2026</div>
+          </div>
+          <p class="course-desc">A six-lecture public series tracing the four great frameworks of modern physics — special relativity, general relativity, quantum field theory, and the road to quantum gravity — through the specific puzzles that forced each one into being. Every lecture opens with a contradiction the existing theory could not resolve and closes with the conceptual structure physicists were forced to adopt. The final lecture reaches one of the deepest open problems today: the tension between general relativity and quantum theory, and what string theory and holography have to say about it.</p>
+          <ol class="course-list">
+            <li>Puzzles leading to EM &amp; special relativity — Maxwell, Michelson–Morley, and the Lorentz transformation.</li>
+            <li>Puzzles leading to general relativity — the equivalence principle and dynamical spacetime.</li>
+            <li>Consequences of general relativity — light bending, gravitational waves, black holes, cosmology.</li>
+            <li>The need for quantum field theory — blackbody radiation, antiparticles, and causality.</li>
+            <li>Consequences of QFT — QED, the electron <em>g</em>−2, gauge symmetry, and the LHC.</li>
+            <li>A current puzzle — quantising gravity, the black-hole information paradox, string theory, holography.</li>
+          </ol>
+          <div class="course-links">
+            <a href="Course_Structure.pdf" target="_blank" rel="noopener">Syllabus (PDF) ↗</a>
+            <a href="Poster.pdf" target="_blank" rel="noopener">Poster (PDF) ↗</a>
+            <a href="https://www.youtube.com/playlist?list=PL_rRzpvo2vHjCY0XLWQMDEcaBLoNPesYd" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+            <span class="soon">Lecture notes — coming soon</span>
+          </div>
+        </div>
         <div class="row"><div class="when">2026</div><div class="what"><div class="h">Large N, Confinement &amp; SUSY localization</div><div class="s">A three-lecture set given at IISER Bhopal and IISc Bangalore — prerequisites for the string-dual picture of QCD.</div></div></div>
 
         <h3>Research mentoring</h3>
-        <div class="row"><div class="when">2023</div><div class="what"><div class="h">Mentored research projects · TIFR</div><div class="s">Students: A. Rahaman, V. Kumar (arXiv:2311.17015), A. Navhal (arXiv:2505.01507).</div></div></div>
+        <p class="soon" style="margin-top:2px">Coming soon.</p>
 
         <h3>Teaching assistantships · TIFR Mumbai</h3>
         <div class="row"><div class="when">2022</div><div class="what"><div class="h">Supersymmetry</div><div class="s">with S. Minwalla</div></div></div>
@@ -315,27 +345,35 @@
       </div>
     </section>
 
+    <!-- OUTREACH -->
+    <section class="section" id="outreach">
+      <div class="inner">
+        <p class="eyebrow">Outreach &amp; administrative</p>
+        <h2 class="title">Outreach &amp; administrative experience</h2>
+        <p class="soon" style="font-size:15px">Coming soon.</p>
+      </div>
+    </section>
+
     <!-- CV -->
     <section class="section" id="cv">
       <div class="inner">
         <p class="eyebrow">Curriculum vitae</p>
         <h2 class="title">Curriculum vitae</h2>
-        <p><a href="cv.pdf" target="_blank" rel="noopener">Download full CV (PDF) ↗</a></p>
 
         <h3>Positions</h3>
-        <div class="row"><div class="when">2025 –</div><div class="what"><div class="h">Postdoctoral Fellow · SISSA, Trieste</div><div class="s">Group of F. Benini</div></div></div>
-        <div class="row"><div class="when">2022 – 25</div><div class="what"><div class="h">Koshland Postdoctoral Fellow · Weizmann Institute</div><div class="s">Group of O. Aharony</div></div></div>
+        <div class="row"><div class="when">2025 –</div><div class="what"><div class="h">Postdoctoral Fellow · SISSA, Trieste</div></div></div>
+        <div class="row"><div class="when">2022 – 25</div><div class="what"><div class="h">Koshland Postdoctoral Fellow · Weizmann Institute</div></div></div>
 
         <h3>Education</h3>
-        <div class="row"><div class="when">2017 – 22</div><div class="what"><div class="h">PhD, Physics · TIFR Mumbai</div><div class="s">“Constraints on Classical Theories of Gravity” · advisor S. Minwalla</div></div></div>
-        <div class="row"><div class="when">2015 – 17</div><div class="what"><div class="h">MSc, Gravity · IIT Kanpur</div><div class="s">advisor S. Bhattacharyya · grade 96</div></div></div>
-        <div class="row"><div class="when">2012 – 15</div><div class="what"><div class="h">BSc, Physics &amp; Mathematics · Presidency University, Kolkata</div><div class="s">Gold Medalist · grade 92</div></div></div>
+        <div class="row"><div class="when">2017 – 22</div><div class="what"><div class="h">PhD, Physics · TIFR Mumbai</div></div></div>
+        <div class="row"><div class="when">2015 – 17</div><div class="what"><div class="h">MSc, Gravity · IIT Kanpur</div></div></div>
+        <div class="row"><div class="when">2012 – 15</div><div class="what"><div class="h">BSc, Physics · Presidency University, Kolkata</div></div></div>
 
         <h3>Selected awards</h3>
-        <div class="row"><div class="when">2023</div><div class="what"><div class="h">Koshland Prize · Weizmann Institute</div><div class="s">For outstanding postdoctoral fellows.</div></div></div>
-        <div class="row"><div class="when">2021</div><div class="what"><div class="h">ICTP Fellowship</div><div class="s">First prize, Strings 2021 gong show (developing countries).</div></div></div>
-        <div class="row"><div class="when">2016</div><div class="what"><div class="h">SPM Fellowship · CSIR</div><div class="s">4th rank, CSIR-UGC JRF (NET).</div></div></div>
-        <div class="row"><div class="when">2015</div><div class="what"><div class="h">Makhan Lal Sarkar Memorial Prize</div><div class="s">First rank, BSc, Presidency University.</div></div></div>
+        <div class="row"><div class="when">2023</div><div class="what"><div class="h">Koshland Prize · Weizmann Institute</div></div></div>
+        <div class="row"><div class="when">2021</div><div class="what"><div class="h">ICTP Fellowship</div></div></div>
+        <div class="row"><div class="when">2016</div><div class="what"><div class="h">SPM Fellowship · CSIR</div></div></div>
+        <div class="row"><div class="when">2015</div><div class="what"><div class="h">Makhan Lal Sarkar Memorial Prize</div></div></div>
 
         <h3>Skills</h3>
         <div class="row"><div class="when">Computing</div><div class="what"><div class="h">Mathematica · Python · C / C++ · FORTRAN · LaTeX</div></div></div>
