@@ -1,716 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Suman Kundu — High Energy Physics</title>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suman Kundu — Theoretical High Energy Physics</title>
+<meta name="description" content="Suman Kundu — postdoctoral researcher in theoretical high energy physics. Holography, scattering amplitudes, AdS black holes, and the string dual of 2D Yang–Mills.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#171717;
+    --muted:#6e6e6e;
+    --faint:#9a9a97;
+    --rule:#ebe9e4;
+    --rule-strong:#dcd9d2;
+    --accent:#35507a;
+    --accent-dark:#24406b;
+    --tag-bg:#f4f3ef;
+    --maxw:760px;
+    --sidebar:248px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:16px;
+    line-height:1.62;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:var(--accent);text-decoration:none;transition:color .15s ease}
+  a:hover{color:var(--accent-dark)}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+    outline:2px solid var(--accent);outline-offset:2px;border-radius:2px;
+  }
 
-    :root {
-      --bg: #f5f4f0;
-      --white: #ffffff;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
-      --accent: #8b3a3a;
-      --border: #e0ddd6;
-      --nav-h: 64px;
+  /* ---------- Layout ---------- */
+  .wrap{display:flex;min-height:100vh;max-width:1180px;margin:0 auto}
+  .sidebar{
+    width:var(--sidebar);flex:0 0 var(--sidebar);
+    padding:52px 34px 40px;
+    border-right:1px solid var(--rule);
+    position:sticky;top:0;height:100vh;
+    display:flex;flex-direction:column;
+  }
+  .main{flex:1 1 auto;min-width:0;padding:52px 56px 96px;max-width:calc(var(--maxw) + 112px)}
+
+  /* ---------- Sidebar ---------- */
+  .brand{margin-bottom:38px}
+  .brand h1{
+    font-family:"Newsreader",serif;font-weight:500;font-size:26px;line-height:1.15;
+    letter-spacing:-.01em;margin:0 0 6px;
+  }
+  .brand .role{font-size:13px;color:var(--muted);line-height:1.45;margin:0}
+  nav.side{display:flex;flex-direction:column;gap:1px}
+  nav.side button{
+    all:unset;cursor:pointer;
+    font-size:14.5px;color:var(--muted);
+    padding:5px 0;letter-spacing:.005em;
+    display:flex;align-items:center;gap:10px;
+    transition:color .15s ease;
+  }
+  nav.side button .dot{
+    width:5px;height:5px;border-radius:50%;background:transparent;
+    transition:background .15s ease;flex:0 0 auto;
+  }
+  nav.side button:hover{color:var(--ink)}
+  nav.side button[aria-current="true"]{color:var(--ink);font-weight:500}
+  nav.side button[aria-current="true"] .dot{background:var(--accent)}
+  .side-foot{margin-top:auto;padding-top:28px;font-size:12.5px;color:var(--faint);line-height:1.7}
+  .side-foot a{color:var(--muted)}
+  .side-foot a:hover{color:var(--accent)}
+
+  /* ---------- Sections ---------- */
+  .section{display:none;animation:fade .35s ease both}
+  .section.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .section{animation:none}
+  }
+  .section > .inner{max-width:var(--maxw)}
+
+  .eyebrow{
+    font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--faint);font-weight:500;margin:0 0 14px;
+  }
+  h2.title{
+    font-family:"Newsreader",serif;font-weight:400;font-size:34px;line-height:1.15;
+    letter-spacing:-.015em;margin:0 0 26px;
+  }
+  h3{
+    font-family:"Newsreader",serif;font-weight:500;font-size:20px;
+    margin:40px 0 14px;letter-spacing:-.01em;
+  }
+  p{margin:0 0 18px;color:#2a2a28}
+  .lead{font-family:"Newsreader",serif;font-size:20px;line-height:1.55;color:#33322f;font-weight:400}
+  hr.rule{border:0;border-top:1px solid var(--rule);margin:38px 0}
+
+  /* ---------- Home ---------- */
+  .home-name{font-family:"Newsreader",serif;font-weight:400;font-size:44px;line-height:1.08;letter-spacing:-.02em;margin:0 0 10px}
+  .home-sub{font-size:16px;color:var(--muted);margin:0 0 30px}
+  .home-sub b{color:var(--ink);font-weight:500}
+  .quicklinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .quicklinks button{
+    all:unset;cursor:pointer;font-size:13.5px;color:var(--ink);
+    border:1px solid var(--rule-strong);border-radius:999px;
+    padding:6px 15px;transition:all .15s ease;
+  }
+  .quicklinks button:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ---------- Meta rows (positions / awards) ---------- */
+  .row{display:flex;gap:20px;padding:15px 0;border-top:1px solid var(--rule)}
+  .row:last-child{border-bottom:1px solid var(--rule)}
+  .row .when{flex:0 0 92px;font-size:13px;color:var(--faint);padding-top:2px;font-variant-numeric:tabular-nums}
+  .row .what{flex:1 1 auto}
+  .row .what .h{font-weight:500;font-size:15.5px}
+  .row .what .s{font-size:14px;color:var(--muted);margin-top:2px}
+
+  /* ---------- Publications ---------- */
+  .subhead{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:34px 0 4px}
+  ol.pubs{list-style:none;counter-reset:pub;margin:0;padding:0}
+  ol.pubs li{
+    counter-increment:pub;position:relative;
+    padding:17px 0 17px 34px;border-top:1px solid var(--rule);
+  }
+  ol.pubs li:last-child{border-bottom:1px solid var(--rule)}
+  ol.pubs li::before{
+    content:counter(pub);position:absolute;left:0;top:18px;
+    font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums;
+  }
+  .pub-title{font-family:"Newsreader",serif;font-size:17px;line-height:1.35;color:var(--ink);font-weight:500;letter-spacing:-.005em}
+  .pub-auth{font-size:13.5px;color:var(--muted);margin-top:3px}
+  .pub-auth .me{color:var(--ink);font-weight:500}
+  .pub-meta{font-size:13px;margin-top:5px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+  .pub-meta .venue{font-style:italic;color:#44433f}
+  .pub-meta .lnk{font-size:12.5px}
+  .tag{
+    display:inline-block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    font-weight:600;color:var(--accent);background:var(--tag-bg);
+    padding:2px 8px;border-radius:3px;
+  }
+
+  /* ---------- Talks ---------- */
+  .talk{display:flex;gap:18px;padding:13px 0;border-top:1px solid var(--rule)}
+  .talk:last-child{border-bottom:1px solid var(--rule)}
+  .talk .yr{flex:0 0 62px;font-size:12.5px;color:var(--faint);padding-top:2px;font-variant-numeric:tabular-nums}
+  .talk .body{flex:1 1 auto}
+  .talk .t{font-size:15px;font-weight:450}
+  .talk .v{font-size:13.5px;color:var(--muted);margin-top:1px}
+  .talk .v .rec{color:var(--accent);font-size:12.5px}
+
+  /* ---------- Writing / Personal ---------- */
+  .note{font-size:14px;color:var(--muted);background:var(--tag-bg);border-radius:8px;padding:14px 16px;line-height:1.55}
+  .writing-list{list-style:none;margin:0;padding:0}
+  .writing-list li{padding:18px 0;border-top:1px solid var(--rule)}
+  .writing-list li:last-child{border-bottom:1px solid var(--rule)}
+  .writing-list .wt{font-family:"Newsreader",serif;font-size:18px;font-weight:500}
+  .writing-list .wd{font-size:13px;color:var(--faint);margin-top:2px}
+  .writing-list .wx{font-size:14px;color:var(--muted);margin-top:6px}
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+  .gallery figure{margin:0}
+  .gallery .frame{
+    aspect-ratio:4/5;background:var(--tag-bg);border:1px solid var(--rule);
+    border-radius:8px;display:flex;align-items:center;justify-content:center;
+    color:var(--faint);font-size:13px;overflow:hidden;
+  }
+  .gallery .frame img{width:100%;height:100%;object-fit:cover;display:block}
+  .gallery figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+
+  /* ---------- Contact form ---------- */
+  .contact-grid{display:grid;gap:16px;margin-top:10px}
+  .field label{display:block;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:6px}
+  .field input,.field textarea{
+    width:100%;font-family:inherit;font-size:15px;color:var(--ink);
+    background:#fff;border:1px solid var(--rule-strong);border-radius:8px;
+    padding:11px 13px;transition:border-color .15s ease;
+  }
+  .field input:focus,.field textarea:focus{border-color:var(--accent)}
+  .field textarea{resize:vertical;min-height:130px;line-height:1.5}
+  .send{
+    all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+    background:var(--ink);color:#fff;font-size:14.5px;font-weight:500;
+    padding:11px 22px;border-radius:8px;transition:background .15s ease;
+  }
+  .send:hover{background:#000}
+  .contact-side{font-size:14px;color:var(--muted);line-height:1.9;margin-top:4px}
+  .contact-side a{color:var(--ink)}
+  .contact-side .k{color:var(--faint);display:inline-block;width:74px}
+
+  /* ---------- Mobile ---------- */
+  .mobilebar{display:none}
+  @media (max-width:860px){
+    .wrap{flex-direction:column}
+    .sidebar{
+      position:static;height:auto;width:100%;flex-basis:auto;
+      border-right:0;border-bottom:1px solid var(--rule);
+      padding:30px 24px 0;
     }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.7;
+    .brand{margin-bottom:18px}
+    nav.side{
+      flex-direction:row;gap:4px;overflow-x:auto;padding-bottom:14px;
+      -webkit-overflow-scrolling:touch;
     }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      height: var(--nav-h);
-      display: flex; align-items: center;
-      padding: 0 48px;
-      justify-content: space-between;
-    }
-
-    .nav-name {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .nav-links {
-      display: flex; gap: 32px; list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.88rem;
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
-    /* ── SECTIONS ── */
-    section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 80px 24px;
-    }
-
-    section + section {
-      border-top: 1px solid var(--border);
-    }
-
-    h2 {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 500;
-      margin-bottom: 36px;
-      color: var(--text);
-    }
-
-    p {
-      font-size: 1rem;
-      color: #2e2e2e;
-      margin-bottom: 1.1em;
-      max-width: 640px;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ── HERO ── */
-    #home {
-      display: flex;
-      align-items: flex-start;
-      gap: 64px;
-      padding-top: 96px;
-    }
-
-    .hero-photo {
-      flex-shrink: 0;
-      width: 260px;
-      height: 300px;
-      border-radius: 6px;
-      overflow: hidden;
-      background: #ddd;
-    }
-
-    .hero-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .photo-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #e8e6e1;
-      color: var(--muted);
-      font-size: 0.8rem;
-      gap: 8px;
-      text-align: center;
-      padding: 16px;
-    }
-
-    .photo-placeholder svg { opacity: 0.4; }
-
-    .hero-text h1 {
-      font-family: 'EB Garamond', serif;
-      font-size: 2.2rem;
-      font-weight: 500;
-      margin-bottom: 6px;
-      line-height: 1.2;
-    }
-
-    .hero-text .position {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 28px;
-      font-weight: 300;
-    }
-
-    .hero-text p {
-      font-size: 0.98rem;
-      line-height: 1.8;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 14px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-
-    .hero-links a {
-      font-size: 0.82rem;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 6px 14px;
-      border-radius: 3px;
-      transition: all 0.2s;
-      letter-spacing: 0.04em;
-    }
-
-    .hero-links a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* ── RESEARCH ── */
-    .research-areas {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 12px;
-    }
-
-    .research-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 24px 26px;
-      transition: border-color 0.2s;
-    }
-
-    .research-card:hover { border-color: #c0bdb7; }
-
-    .research-card h3 {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-
-    .research-card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin: 0;
-      max-width: 100%;
-    }
-
-    /* ── PUBLICATIONS ── */
-    .pub-list { list-style: none; display: flex; flex-direction: column; gap: 24px; }
-
-    .pub-item {
-      border-left: 2px solid var(--border);
-      padding-left: 20px;
-      transition: border-color 0.2s;
-    }
-
-    .pub-item:hover { border-color: var(--accent); }
-
-    .pub-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
-      font-weight: 500;
-      display: block;
-      margin-bottom: 4px;
-      color: var(--text);
-    }
-
-    .pub-title a { color: var(--text); }
-    .pub-title a:hover { color: var(--accent); }
-
-    .pub-authors {
-      font-size: 0.86rem;
-      color: var(--muted);
-      margin-bottom: 4px;
-      font-style: italic;
-    }
-
-    .pub-meta {
-      font-size: 0.82rem;
-      color: var(--muted);
-      display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
-    }
-
-    .pub-tag {
-      background: #eeece7;
-      color: #555;
-      padding: 2px 8px;
-      border-radius: 2px;
-      font-size: 0.75rem;
-      font-style: normal;
-    }
-
-    /* ── CV ── */
-    .cv-section { margin-bottom: 40px; }
-
-    .cv-section h3 {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.78rem;
-      margin-bottom: 16px;
-    }
-
-    .cv-entry {
-      display: flex;
-      gap: 24px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cv-year {
-      font-size: 0.82rem;
-      color: var(--muted);
-      min-width: 90px;
-      padding-top: 2px;
-      font-weight: 300;
-    }
-
-    .cv-detail strong {
-      display: block;
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-
-    .cv-detail span {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .cv-download {
-      display: inline-block;
-      margin-top: 28px;
-      font-size: 0.85rem;
-      border: 1px solid var(--border);
-      padding: 8px 20px;
-      border-radius: 3px;
-      color: var(--text);
-      transition: all 0.2s;
-    }
-
-    .cv-download:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* ── CODE ── */
-    .code-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .code-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 20px 22px;
-      transition: border-color 0.2s;
-    }
-
-    .code-card:hover { border-color: #c0bdb7; }
-
-    .code-card h3 {
-      font-size: 0.92rem;
-      font-weight: 500;
-      margin-bottom: 6px;
-      display: flex; align-items: center; gap: 8px;
-    }
-
-    .code-lang {
-      font-size: 0.72rem;
-      background: #eeece7;
-      color: #666;
-      padding: 2px 7px;
-      border-radius: 2px;
-      font-weight: 400;
-    }
-
-    .code-card p {
-      font-size: 0.84rem;
-      color: var(--muted);
-      margin: 0;
-      line-height: 1.5;
-      max-width: 100%;
-    }
-
-    .code-card a {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: 0.78rem;
-      color: var(--muted);
-      letter-spacing: 0.03em;
-    }
-
-    /* ── BLOG ── */
-    .blog-list { display: flex; flex-direction: column; gap: 0; }
-
-    .blog-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 20px;
-    }
-
-    .blog-item:first-child { border-top: 1px solid var(--border); }
-
-    .blog-item-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-
-    .blog-item-title a { color: var(--text); }
-    .blog-item-title a:hover { color: var(--accent); }
-
-    .blog-date {
-      font-size: 0.82rem;
-      color: var(--muted);
-      white-space: nowrap;
-      font-weight: 300;
-    }
-
-    /* ── CONTACT ── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-
-    .contact-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .contact-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .contact-value {
-      font-size: 0.95rem;
-      color: var(--text);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      font-size: 0.78rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
-
-    /* ── FADE IN ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    section { animation: fadeUp 0.5s ease both; }
-    #home   { animation-delay: 0.05s; }
-    #research  { animation-delay: 0.1s; }
-    #publications { animation-delay: 0.15s; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 700px) {
-      nav { padding: 0 20px; }
-      .nav-links { gap: 18px; }
-      #home { flex-direction: column; gap: 32px; padding-top: 48px; }
-      .hero-photo { width: 100%; height: 240px; }
-      .research-areas, .code-grid, .contact-grid { grid-template-columns: 1fr; }
-      section { padding: 52px 20px; }
-    }
-  </style>
+    nav.side::-webkit-scrollbar{display:none}
+    nav.side button{white-space:nowrap;padding:6px 0}
+    nav.side button .dot{display:none}
+    nav.side button[aria-current="true"]{border-bottom:2px solid var(--accent);padding-bottom:4px}
+    .side-foot{display:none}
+    .main{padding:34px 24px 72px;max-width:100%}
+    .home-name{font-size:36px}
+    h2.title{font-size:28px}
+    .gallery{grid-template-columns:1fr}
+    .row{flex-direction:column;gap:2px}
+    .row .when{flex-basis:auto}
+  }
+</style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a class="nav-name" href="#home">Suman Kundu</a>
-  <ul class="nav-links">
-    <li><a href="#research">Research</a></li>
-    <li><a href="#publications">Publications</a></li>
-    <li><a href="#cv">CV</a></li>
-    <li><a href="#code">Code</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HOME -->
-<section id="home">
-  <div class="hero-photo">
-    <!-- Replace the block below with: <img src="photo.jpg" alt="Your Name"> -->
-    <img src="photo.jpg" alt="Your Name">
-  </div>
-
-  <div class="hero-text">
-    <h1>Suman Kundu</h1>
-    <p class="position">Postdoctoral Researcher · SISSA, Trieste</p>
-    <p>
-      I am a high energy physicist working at the intersection of collider phenomenology,
-      quantum field theory, and particle physics beyond the Standard Model. My <a href="#research">research</a>
-      focuses on precision calculations for collider observables, new physics signatures at the LHC,
-      and the theoretical foundations of the Standard Model.
-    </p>
-    <p>
-      I am currently a postdoctoral fellow at [Your Institute]. I completed my doctoral studies at
-      [Your PhD Institution]. I received a Bachelor's degree in Physics from [Undergrad University]
-      and a Master's degree from [Masters University].
-    </p>
-    <div class="hero-links">
-      <a href="mailto:you@institution.edu">Email</a>
-      <a href="https://arxiv.org" target="_blank">arXiv</a>
-      <a href="https://inspirehep.net" target="_blank">INSPIRE</a>
-      <a href="https://github.com" target="_blank">GitHub</a>
-      <a href="cv.pdf">CV (PDF)</a>
+<div class="wrap">
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>Suman Kundu</h1>
+      <p class="role">Theoretical High Energy Physics<br>SISSA, Trieste</p>
     </div>
-  </div>
-</section>
+    <nav class="side" aria-label="Sections">
+      <button data-s="home" aria-current="true"><span class="dot"></span>Home</button>
+      <button data-s="research"><span class="dot"></span>Research</button>
+      <button data-s="publications"><span class="dot"></span>Publications &amp; Talks</button>
+      <button data-s="teaching"><span class="dot"></span>Teaching</button>
+      <button data-s="cv"><span class="dot"></span>CV</button>
+      <button data-s="writing"><span class="dot"></span>Writing</button>
+      <button data-s="personal"><span class="dot"></span>Personal</button>
+      <button data-s="contact"><span class="dot"></span>Contact</button>
+    </nav>
+    <div class="side-foot">
+      <a href="https://inspirehep.net/authors/1780620" target="_blank" rel="noopener">INSPIRE-HEP</a><br>
+      <a href="mailto:kundusuman1994@gmail.com">kundusuman1994@gmail.com</a>
+    </div>
+  </aside>
 
-<!-- RESEARCH -->
-<section id="research">
-  <h2>Research</h2>
-  <p>
-    My work sits at the boundary of theoretical and computational high energy physics.
-    I am broadly interested in understanding the fundamental structure of matter and forces
-    through precision calculations and new physics searches.
-  </p>
-  <div class="research-areas">
-    <div class="research-card">
-      <h3>Collider Phenomenology</h3>
-      <p>Precision QCD calculations, Monte Carlo methods, and jet physics for current and future collider experiments.</p>
-    </div>
-    <div class="research-card">
-      <h3>Beyond the Standard Model</h3>
-      <p>New physics signatures at the LHC, effective field theories, and dark matter candidates in collider searches.</p>
-    </div>
-    <div class="research-card">
-      <h3>Quantum Field Theory</h3>
-      <p>Higher-order perturbative calculations, resummation techniques, and amplitude methods.</p>
-    </div>
-    <div class="research-card">
-      <h3>Machine Learning in HEP</h3>
-      <p>Neural networks for event classification, generative models for fast simulation, and anomaly detection.</p>
-    </div>
-  </div>
-</section>
+  <!-- ============ MAIN ============ -->
+  <main class="main">
 
-<!-- PUBLICATIONS -->
-<section id="publications">
-  <h2>Publications</h2>
-  <p>Selected publications. Full list on <a href="https://inspirehep.net" target="_blank">INSPIRE-HEP</a> and <a href="https://arxiv.org" target="_blank">arXiv</a>.</p>
-  <ul class="pub-list">
-    <li class="pub-item">
-      <span class="pub-title"><a href="#">Precision Higgs Production at Next-to-Leading Order in QCD</a></span>
-      <div class="pub-authors">Suman Kundu, Collaborator A, Collaborator B</div>
-      <div class="pub-meta">
-        <span>Journal of High Energy Physics, 2025</span>
-        <span class="pub-tag">arXiv:2501.00000</span>
+    <!-- HOME -->
+    <section class="section active" id="home">
+      <div class="inner">
+        <p class="home-name">Suman&nbsp;Kundu</p>
+        <p class="home-sub">Postdoctoral researcher, <b>SISSA — Trieste</b>. Previously Koshland Fellow at the Weizmann Institute; PhD from TIFR Mumbai.</p>
+        <p class="lead">I work on the analytic structure of quantum field theory and gravity — scattering amplitudes and their Regge growth, holography and AdS black holes, and the string theory dual of two-dimensional Yang–Mills.</p>
+        <div class="quicklinks">
+          <button data-s="research">Research summary</button>
+          <button data-s="publications">Publications &amp; talks</button>
+          <button data-s="cv">Curriculum vitae</button>
+          <button data-s="contact">Get in touch</button>
+        </div>
       </div>
-    </li>
-    <li class="pub-item">
-      <span class="pub-title"><a href="#">Dark Matter Signatures in Monojet Events at the LHC</a></span>
-      <div class="pub-authors">Suman Kundu, Collaborator C</div>
-      <div class="pub-meta">
-        <span>Physical Review D, 2024</span>
-        <span class="pub-tag">arXiv:2408.00000</span>
-      </div>
-    </li>
-    <li class="pub-item">
-      <span class="pub-title"><a href="#">Resummation of Soft-Collinear Logarithms in Dijet Production</a></span>
-      <div class="pub-authors">Suman Kundu, Collaborator D, Collaborator E</div>
-      <div class="pub-meta">
-        <span>Nuclear Physics B, 2024</span>
-        <span class="pub-tag">arXiv:2403.00000</span>
-      </div>
-    </li>
-    <li class="pub-item">
-      <span class="pub-title"><a href="#">Effective Field Theory Approach to Top Quark Pair Production</a></span>
-      <div class="pub-authors">Suman Kundu, Collaborator F</div>
-      <div class="pub-meta">
-        <span>European Physical Journal C, 2023</span>
-        <span class="pub-tag">arXiv:2310.00000</span>
-      </div>
-    </li>
-  </ul>
-</section>
+    </section>
 
-<!-- CV -->
-<section id="cv">
-  <h2>Curriculum Vitae</h2>
+    <!-- RESEARCH -->
+    <section class="section" id="research">
+      <div class="inner">
+        <p class="eyebrow">Research</p>
+        <h2 class="title">Research summary</h2>
+        <p class="lead">My work centres on the constraints that consistency — causality, unitarity, and chaos bounds — places on theories of gravity and their holographic descriptions.</p>
 
-  <div class="cv-section">
-    <h3>Positions</h3>
-    <div class="cv-entry">
-      <div class="cv-year">2024 – present</div>
-      <div class="cv-detail">
-        <strong>Postdoctoral Researcher</strong>
-        <span>Institute for High Energy Physics, Your University</span>
-      </div>
-    </div>
-  </div>
+        <h3>Scattering amplitudes &amp; the Regge limit</h3>
+        <p>I study how bounds on chaos in holographic CFTs translate into bounds on the Regge growth of flat-space scattering amplitudes — the Chaos–Regge Growth (CRG) statement — and how causality constrains local four-point amplitudes of massive particles with spin, connecting to swampland criteria for isolated massive spin-2 states.</p>
 
-  <div class="cv-section">
-    <h3>Education</h3>
-    <div class="cv-entry">
-      <div class="cv-year">2020 – 2024</div>
-      <div class="cv-detail">
-        <strong>Ph.D. in Theoretical Physics</strong>
-        <span>PhD Institution · Advisor: Prof. Name</span>
-      </div>
-    </div>
-    <div class="cv-entry">
-      <div class="cv-year">2018 – 2020</div>
-      <div class="cv-detail">
-        <strong>M.Sc. in Physics</strong>
-        <span>Masters University</span>
-      </div>
-    </div>
-    <div class="cv-entry">
-      <div class="cv-year">2015 – 2018</div>
-      <div class="cv-detail">
-        <strong>B.Sc. in Physics</strong>
-        <span>Undergraduate University</span>
-      </div>
-    </div>
-  </div>
+        <h3>The string dual of 2D Yang–Mills</h3>
+        <p>With Ofer Aharony and Tal Sheaffer I have been constructing an explicit worldsheet string theory whose partition function reproduces two-dimensional Yang–Mills theory, giving a concrete, solvable instance of gauge–string duality.</p>
 
-  <div class="cv-section">
-    <h3>Awards &amp; Fellowships</h3>
-    <div class="cv-entry">
-      <div class="cv-year">2024</div>
-      <div class="cv-detail">
-        <strong>Fellowship Name</strong>
-        <span>Awarding Institution</span>
+        <h3>AdS black holes &amp; holography</h3>
+        <p>I proposed <em>“Grey Galaxies”</em> as an endpoint of the Kerr–AdS superradiant instability, and study CFT correlators on the Lorentzian cylinder, the flat-space limit of the S-matrix and its boundary correlators, and cosmological correlators in de Sitter α-vacua.</p>
+
+        <hr class="rule">
+        <p class="subhead">Interests</p>
+        <p style="color:var(--muted);font-size:15px">Holography &amp; AdS/CFT · S-matrix bootstrap · Conformal Regge theory · Swampland · Black-hole thermodynamics · Large-D gravity · Confinement &amp; large N</p>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <a class="cv-download" href="cv.pdf">Download full CV (PDF) →</a>
-</section>
+    <!-- PUBLICATIONS & TALKS -->
+    <section class="section" id="publications">
+      <div class="inner">
+        <p class="eyebrow">Selected work</p>
+        <h2 class="title">Publications &amp; talks</h2>
+        <p style="color:var(--muted);font-size:14.5px">Author order follows the HEP convention (alphabetical by surname). Full list on <a href="https://inspirehep.net/authors/1780620" target="_blank" rel="noopener">INSPIRE-HEP</a>.</p>
 
-<!-- CODE -->
-<section id="code">
-  <h2>Public Code</h2>
-  <p>Open-source tools and libraries developed as part of my research. All code is available on <a href="https://github.com" target="_blank">GitHub</a>.</p>
-  <div class="code-grid">
-    <div class="code-card">
-      <h3>HEPCalc <span class="code-lang">Python / C++</span></h3>
-      <p>A toolkit for NLO cross-section calculations, interfaced with standard Monte Carlo generators.</p>
-      <a href="https://github.com" target="_blank">github.com/yourname/hepcalc →</a>
-    </div>
-    <div class="code-card">
-      <h3>JetML <span class="code-lang">Python</span></h3>
-      <p>Machine learning pipeline for jet classification and anomaly detection in LHC event data.</p>
-      <a href="https://github.com" target="_blank">github.com/yourname/jetml →</a>
-    </div>
-    <div class="code-card">
-      <h3>FeynTools <span class="code-lang">Mathematica</span></h3>
-      <p>Automated Feynman diagram generation and loop integral reduction for BSM models.</p>
-      <a href="https://github.com" target="_blank">github.com/yourname/feyntools →</a>
-    </div>
-    <div class="code-card">
-      <h3>EFT-Fit <span class="code-lang">Python</span></h3>
-      <p>Bayesian fitting framework for Standard Model EFT operator coefficients from collider data.</p>
-      <a href="https://github.com" target="_blank">github.com/yourname/eft-fit →</a>
-    </div>
-  </div>
-</section>
+        <p class="subhead">In review / submitted</p>
+        <ol class="pubs">
+          <li>
+            <div class="pub-title">A string theory for two-dimensional Yang–Mills theory, Part II</div>
+            <div class="pub-auth">O. Aharony, <span class="me">S. Kundu</span>, T. Sheaffer</div>
+            <div class="pub-meta"><span class="tag">Submitted</span><a class="lnk" href="https://arxiv.org/abs/2510.22303" target="_blank" rel="noopener">arXiv:2510.22303</a></div>
+          </li>
+          <li>
+            <div class="pub-title">The S-matrix and boundary correlators in flat space</div>
+            <div class="pub-auth">D. Jain, <span class="me">S. Kundu</span>, S. Minwalla, O. Parrikar, S. G. Prabhu, P. Shrivastava</div>
+            <div class="pub-meta"><span class="tag">Accepted · JHEP</span><a class="lnk" href="https://arxiv.org/abs/2311.03443" target="_blank" rel="noopener">arXiv:2311.03443</a></div>
+          </li>
+        </ol>
 
-<!-- BLOG -->
-<section id="blog">
-  <h2>Writing</h2>
-  <p>Occasional notes on physics, computation, and research life.</p>
-  <div class="blog-list">
-    <div class="blog-item">
-      <span class="blog-item-title"><a href="#">An Intuitive Introduction to DGLAP Evolution Equations</a></span>
-      <span class="blog-date">January 2025</span>
-    </div>
-    <div class="blog-item">
-      <span class="blog-item-title"><a href="#">Why Jet Cross Sections Are Hard: A Pedagogical Overview</a></span>
-      <span class="blog-date">October 2024</span>
-    </div>
-    <div class="blog-item">
-      <span class="blog-item-title"><a href="#">Getting Started with MadGraph5: A Practical Guide</a></span>
-      <span class="blog-date">June 2024</span>
-    </div>
-    <div class="blog-item">
-      <span class="blog-item-title"><a href="#">What the Higgs Discovery Actually Meant for BSM Physics</a></span>
-      <span class="blog-date">March 2024</span>
-    </div>
-  </div>
-</section>
+        <p class="subhead">Published</p>
+        <ol class="pubs">
+          <li>
+            <div class="pub-title">A string theory for two-dimensional Yang–Mills theory, Part I</div>
+            <div class="pub-auth">O. Aharony, <span class="me">S. Kundu</span>, T. Sheaffer</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 07 (2024) 063</div>
+          </li>
+          <li>
+            <div class="pub-title">Monodromies of CFT correlators on the Lorentzian cylinder</div>
+            <div class="pub-auth"><span class="me">S. Kundu</span>, S. Minwalla, A. Navhal</div>
+            <div class="pub-meta"><span class="venue">SciPost Phys.</span> 19 (2025) 162</div>
+          </li>
+          <li>
+            <div class="pub-title">Regge constraints on local four-point scattering amplitudes of massive particles with spin</div>
+            <div class="pub-auth">S. Dutta Chowdhury, V. Kumar, <span class="me">S. Kundu</span>, A. Rahaman</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2024) 123</div>
+          </li>
+          <li>
+            <div class="pub-title">Regge growth of isolated massive spin-2 particles and the Swampland</div>
+            <div class="pub-auth"><span class="me">S. Kundu</span>, E. Palti, J. Quirant</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2024) 139</div>
+          </li>
+          <li>
+            <div class="pub-title">“Grey Galaxies” as an endpoint of the Kerr–AdS superradiant instability</div>
+            <div class="pub-auth">S. Kim, <span class="me">S. Kundu</span>, E. Lee, J. Lee, S. Minwalla, C. Patel</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 11 (2023) 024</div>
+          </li>
+          <li>
+            <div class="pub-title">A CFT interpretation of cosmological correlation functions in α-vacua in de Sitter space</div>
+            <div class="pub-auth">S. Jain, N. Kundu, <span class="me">S. Kundu</span>, A. Mehta, S. K. Sake</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2023) 111</div>
+          </li>
+          <li>
+            <div class="pub-title">Bounds on Regge growth of flat space scattering from bounds on chaos</div>
+            <div class="pub-auth">D. Chandorkar, S. Dutta Chowdhury, <span class="me">S. Kundu</span>, S. Minwalla</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 05 (2021) 143</div>
+          </li>
+          <li>
+            <div class="pub-title">Classification of all 3-particle S-matrices quadratic in photons or gravitons</div>
+            <div class="pub-auth">S. Chakraborty, S. Dutta Chowdhury, T. Gopalka, <span class="me">S. Kundu</span>, S. Minwalla, A. Mishra</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 04 (2020) 110</div>
+          </li>
+          <li>
+            <div class="pub-title">Large-D gravity and charged membrane dynamics with nonzero cosmological constant</div>
+            <div class="pub-auth"><span class="me">S. Kundu</span>, P. Nandi</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 12 (2018) 034</div>
+          </li>
+          <li>
+            <div class="pub-title">An action for and hydrodynamics from the improved large-D membrane</div>
+            <div class="pub-auth">Y. Dandekar, <span class="me">S. Kundu</span>, S. Mazumdar, S. Minwalla, A. Mishra, A. Saha</div>
+            <div class="pub-meta"><span class="venue">JHEP</span> 09 (2018) 137</div>
+          </li>
+        </ol>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p>I am happy to discuss research, collaborations, or outreach opportunities.</p>
-  <div class="contact-grid">
-    <div>
-      <div class="contact-item" style="margin-bottom:20px">
-        <span class="contact-label">Email</span>
-        <span class="contact-value"><a href="mailto:you@institution.edu">you@institution.edu</a></span>
+        <h3>Selected invited talks</h3>
+        <div>
+          <div class="talk"><div class="yr">2025</div><div class="body"><div class="t">The S-matrix and boundary correlators in flat space</div><div class="v">Seminar · SISSA, Trieste</div></div></div>
+          <div class="talk"><div class="yr">2025</div><div class="body"><div class="t">A theory of colours: the strong force</div><div class="v">Colloquium · Presidency University, Kolkata · <a class="rec" href="https://www.youtube.com/watch?v=vktxFi9Spbg" target="_blank" rel="noopener">recording ↗</a></div></div></div>
+          <div class="talk"><div class="yr">2025</div><div class="body"><div class="t">A string theory for 2D Yang–Mills</div><div class="v">Seminars · IMSc Chennai · HRI Allahabad · IISER Pune · IIT Kanpur · TIFR Mumbai · SINP &amp; IACS Kolkata · NISER Bhubaneswar</div></div></div>
+          <div class="talk"><div class="yr">2024</div><div class="body"><div class="t">A string theory for 2D Yang–Mills</div><div class="v">Seminar · ICTS, Bangalore (90 min) · <a class="rec" href="https://www.youtube.com/watch?v=3VT4P9F2gE8" target="_blank" rel="noopener">recording ↗</a></div></div></div>
+          <div class="talk"><div class="yr">2024</div><div class="body"><div class="t">String theory for 2D Yang–Mills</div><div class="v">Gong show · Strings 2024, CERN · <a class="rec" href="https://www.youtube.com/watch?v=zLH3Ma-iq-s" target="_blank" rel="noopener">recording ↗</a></div></div></div>
+          <div class="talk"><div class="yr">2024</div><div class="body"><div class="t">A string theory for 2D Yang–Mills</div><div class="v">PCTS–Simons meeting, Princeton · also Tel Aviv University</div></div></div>
+          <div class="talk"><div class="yr">2023</div><div class="body"><div class="t">“Grey Galaxies” as an endpoint of the Kerr–AdS superradiant instability</div><div class="v">GR Seminar · CMSA, Harvard · also Technion &amp; PITP, IAS Princeton</div></div></div>
+          <div class="talk"><div class="yr">2023</div><div class="body"><div class="t">Regge growth of isolated massive spin-2 particles and the Swampland</div><div class="v">Seminar · TIFR, Mumbai</div></div></div>
+          <div class="talk"><div class="yr">2021</div><div class="body"><div class="t">CRG from the bound on chaos</div><div class="v">Gong show · Strings 2021 · also Caltech, IAS Princeton, TASI, Greater Paris Bootstrap · <a class="rec" href="https://youtu.be/Cv92qxKt2LA?t=1787" target="_blank" rel="noopener">recording ↗</a></div></div></div>
+        </div>
+        <p style="margin-top:22px;font-size:14px;color:var(--muted)">A complete talk history is in the <button class="lnk" data-s="cv" style="all:unset;cursor:pointer;color:var(--accent)">CV</button>.</p>
       </div>
-      <div class="contact-item" style="margin-bottom:20px">
-        <span class="contact-label">Office</span>
-        <span class="contact-value">Room 000, Physics Building<br>Your University, City, Country</span>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label">Profiles</span>
-        <span class="contact-value">
-          <a href="#">INSPIRE-HEP</a> ·
-          <a href="#">arXiv</a> ·
-          <a href="#">GitHub</a> ·
-          <a href="#">ORCiD</a>
-        </span>
-      </div>
-    </div>
-    <div>
-      <div class="contact-item">
-        <span class="contact-label">Mailing Address</span>
-        <span class="contact-value" style="font-size:0.9rem; line-height:1.8; color:var(--muted)">
-          Suman Kundu<br>
-          Department of Physics<br>
-          Your University<br>
-          Street Address<br>
-          City, Country
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<footer>
-  © 2025 Suman Kundu · Built with plain HTML/CSS ·
-  <a href="https://pages.github.com" target="_blank">Hosted on GitHub Pages</a>
-</footer>
+    <!-- TEACHING -->
+    <section class="section" id="teaching">
+      <div class="inner">
+        <p class="eyebrow">Teaching</p>
+        <h2 class="title">Teaching &amp; mentoring</h2>
+        <p class="lead">I enjoy teaching the ideas behind non-perturbative gauge theory and gravity, from lecture courses to research supervision.</p>
 
+        <h3>Lecture series</h3>
+        <div class="row"><div class="when">2026</div><div class="what"><div class="h">Large N, Confinement &amp; SUSY localization</div><div class="s">A three-lecture set given at IISER Bhopal and IISc Bangalore — prerequisites for the string-dual picture of QCD.</div></div></div>
+
+        <h3>Research mentoring</h3>
+        <div class="row"><div class="when">2023</div><div class="what"><div class="h">Mentored research projects · TIFR</div><div class="s">Students: A. Rahaman, V. Kumar (arXiv:2311.17015), A. Navhal (arXiv:2505.01507).</div></div></div>
+
+        <h3>Teaching assistantships · TIFR Mumbai</h3>
+        <div class="row"><div class="when">2022</div><div class="what"><div class="h">Supersymmetry</div><div class="s">with S. Minwalla</div></div></div>
+        <div class="row"><div class="when">2022</div><div class="what"><div class="h">Tutorial · Kavli Asian Winter School, ICTS</div><div class="s">with S. Minwalla · <a href="https://www.youtube.com/watch?v=olOb-pH0NO8" target="_blank" rel="noopener">recording ↗</a></div></div></div>
+        <div class="row"><div class="when">2021</div><div class="what"><div class="h">Electrodynamics II</div><div class="s">with S. Muzumdar</div></div></div>
+        <div class="row"><div class="when">2020</div><div class="what"><div class="h">Advanced Quantum Mechanics</div><div class="s">with R. Sharma</div></div></div>
+        <div class="row"><div class="when">2019</div><div class="what"><div class="h">Group Theory &amp; Topology</div><div class="s">with G. Mandal</div></div></div>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section class="section" id="cv">
+      <div class="inner">
+        <p class="eyebrow">Curriculum vitae</p>
+        <h2 class="title">Curriculum vitae</h2>
+        <p><a href="cv.pdf" target="_blank" rel="noopener">Download full CV (PDF) ↗</a></p>
+
+        <h3>Positions</h3>
+        <div class="row"><div class="when">2025 –</div><div class="what"><div class="h">Postdoctoral Fellow · SISSA, Trieste</div><div class="s">Group of F. Benini</div></div></div>
+        <div class="row"><div class="when">2022 – 25</div><div class="what"><div class="h">Koshland Postdoctoral Fellow · Weizmann Institute</div><div class="s">Group of O. Aharony</div></div></div>
+
+        <h3>Education</h3>
+        <div class="row"><div class="when">2017 – 22</div><div class="what"><div class="h">PhD, Physics · TIFR Mumbai</div><div class="s">“Constraints on Classical Theories of Gravity” · advisor S. Minwalla</div></div></div>
+        <div class="row"><div class="when">2015 – 17</div><div class="what"><div class="h">MSc, Gravity · IIT Kanpur</div><div class="s">advisor S. Bhattacharyya · grade 96</div></div></div>
+        <div class="row"><div class="when">2012 – 15</div><div class="what"><div class="h">BSc, Physics &amp; Mathematics · Presidency University, Kolkata</div><div class="s">Gold Medalist · grade 92</div></div></div>
+
+        <h3>Selected awards</h3>
+        <div class="row"><div class="when">2023</div><div class="what"><div class="h">Koshland Prize · Weizmann Institute</div><div class="s">For outstanding postdoctoral fellows.</div></div></div>
+        <div class="row"><div class="when">2021</div><div class="what"><div class="h">ICTP Fellowship</div><div class="s">First prize, Strings 2021 gong show (developing countries).</div></div></div>
+        <div class="row"><div class="when">2016</div><div class="what"><div class="h">SPM Fellowship · CSIR</div><div class="s">4th rank, CSIR-UGC JRF (NET).</div></div></div>
+        <div class="row"><div class="when">2015</div><div class="what"><div class="h">Makhan Lal Sarkar Memorial Prize</div><div class="s">First rank, BSc, Presidency University.</div></div></div>
+
+        <h3>Skills</h3>
+        <div class="row"><div class="when">Computing</div><div class="what"><div class="h">Mathematica · Python · C / C++ · FORTRAN · LaTeX</div></div></div>
+        <div class="row"><div class="when">Languages</div><div class="what"><div class="h">English · Bengali (native) · Hindi</div></div></div>
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section class="section" id="writing">
+      <div class="inner">
+        <p class="eyebrow">Writing</p>
+        <h2 class="title">Writing &amp; notes</h2>
+        <p class="lead">Expository notes, lecture material, and occasional essays on physics and beyond.</p>
+        <ul class="writing-list">
+          <li>
+            <div class="wt">Aspects of large N</div>
+            <div class="wd">Pedagogical notes</div>
+            <div class="wx">Companion notes to the lecture series on large N, confinement, and the string-dual picture of gauge theory.</div>
+          </li>
+          <li>
+            <div class="wt">The Regge limit, from chaos to amplitudes</div>
+            <div class="wd">Expository</div>
+            <div class="wx">An informal walk through the CRG story and how bounds on chaos control high-energy scattering.</div>
+          </li>
+        </ul>
+        <p class="note" style="margin-top:24px">Drop new pieces in here — replace these entries with links to your PDFs, blog posts, or arXiv notes. Each <code>&lt;li&gt;</code> is one entry.</p>
+      </div>
+    </section>
+
+    <!-- PERSONAL -->
+    <section class="section" id="personal">
+      <div class="inner">
+        <p class="eyebrow">Personal</p>
+        <h2 class="title">Beyond physics</h2>
+        <p class="lead">Music, painting, and things made with my hands. This page is a small gallery — a place for work that isn’t on the arXiv.</p>
+        <div class="gallery">
+          <figure><div class="frame">Add image → painting-1.jpg</div><figcaption>Untitled</figcaption></figure>
+          <figure><div class="frame">Add image → painting-2.jpg</div><figcaption>Untitled</figcaption></figure>
+          <figure><div class="frame">Add image → painting-3.jpg</div><figcaption>Untitled</figcaption></figure>
+          <figure><div class="frame">Add image → painting-4.jpg</div><figcaption>Untitled</figcaption></figure>
+        </div>
+        <p class="note" style="margin-top:24px">To fill a frame, put your image next to <code>index.html</code> and set it inside the frame, e.g. <code>&lt;div class="frame"&gt;&lt;img src="painting-1.jpg" alt=""&gt;&lt;/div&gt;</code>.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="inner">
+        <p class="eyebrow">Contact</p>
+        <h2 class="title">Get in touch</h2>
+        <p class="lead">For collaborations, talks, or questions — send a note below and it will open in your mail client, addressed to me.</p>
+
+        <div class="contact-grid">
+          <div class="field">
+            <label for="cname">Your name</label>
+            <input id="cname" type="text" autocomplete="name" placeholder="Jane Doe">
+          </div>
+          <div class="field">
+            <label for="cemail">Your email</label>
+            <input id="cemail" type="email" autocomplete="email" placeholder="jane@university.edu">
+          </div>
+          <div class="field">
+            <label for="csubj">Subject</label>
+            <input id="csubj" type="text" placeholder="Seminar invitation">
+          </div>
+          <div class="field">
+            <label for="cmsg">Message</label>
+            <textarea id="cmsg" placeholder="Write your message…"></textarea>
+          </div>
+          <div>
+            <button class="send" id="sendBtn">Send email →</button>
+            <span id="sendHint" style="font-size:13px;color:var(--faint);margin-left:12px"></span>
+          </div>
+        </div>
+
+        <hr class="rule">
+        <div class="contact-side">
+          <div><span class="k">Email</span><a href="mailto:kundusuman1994@gmail.com">kundusuman1994@gmail.com</a></div>
+          <div><span class="k">Institute</span><a href="mailto:sukundu@sissa.it">sukundu@sissa.it</a></div>
+          <div><span class="k">INSPIRE</span><a href="https://inspirehep.net/authors/1780620" target="_blank" rel="noopener">authors/1780620</a></div>
+          <div><span class="k">Address</span>SISSA, Via Bonomea 265, 34136 Trieste, Italy</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('[data-s]');
+  var sections = document.querySelectorAll('.section');
+  var navBtns  = document.querySelectorAll('nav.side button');
+
+  function show(id){
+    sections.forEach(function(s){ s.classList.toggle('active', s.id === id); });
+    navBtns.forEach(function(b){ b.setAttribute('aria-current', b.dataset.s === id ? 'true' : 'false'); });
+    if(history.replaceState){ history.replaceState(null,'','#'+id); }
+    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+  }
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){ show(b.dataset.s); });
+  });
+
+  // deep-link on load
+  var start = (location.hash || '#home').slice(1);
+  if(document.getElementById(start)) show(start); else show('home');
+  window.addEventListener('hashchange', function(){
+    var id = (location.hash || '#home').slice(1);
+    if(document.getElementById(id)) show(id);
+  });
+
+  // contact -> mailto
+  var send = document.getElementById('sendBtn');
+  if(send){
+    send.addEventListener('click', function(){
+      var name = document.getElementById('cname').value.trim();
+      var from = document.getElementById('cemail').value.trim();
+      var subj = document.getElementById('csubj').value.trim() || 'Message from your website';
+      var msg  = document.getElementById('cmsg').value.trim();
+      var body = msg + '\n\n— ' + (name || 'Anonymous') + (from ? ' <' + from + '>' : '');
+      var href = 'mailto:kundusuman1994@gmail.com'
+               + '?subject=' + encodeURIComponent(subj)
+               + '&body='    + encodeURIComponent(body);
+      window.location.href = href;
+      document.getElementById('sendHint').textContent = 'Opening your mail app…';
+    });
+  }
+})();
+</script>
 </body>
 </html>
